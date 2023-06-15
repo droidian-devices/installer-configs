@@ -18,19 +18,7 @@ properties:
         items:
           type: "string"
           description: "Shell arguments"
-        ubports_installer-compatibility: ">=0.9.6-beta"
-      - type: "object"
-        required: ["args"]
-        additionalProperties: false
-        properties:
-          args:
-            title: Arguments
-            type: "array"
-            description: "Shell arguments"
-            items:
-              type: string
-        ubports_installer-compatibility: ">=0.9.2-beta <0.10.0-beta"
-        deprecated: true
+        ubports_installer-compatibility: ">=0.0.2"
 
   adb:reboot:
     title: "adb:reboot action"
@@ -123,7 +111,7 @@ properties:
         description: "Asserted property value"
       regex:
         $ref: regex.schema.yml#
-    ubports_installer-compatibility: ">=0.9.4-beta"
+    ubports_installer-compatibility: ">=0.0.2"
 
   ###############################
   # asteroid_os plugin ##########
@@ -317,7 +305,7 @@ properties:
     title: "fastboot:reboot_fastboot action"
     description: "Reboot the device to fastboot over fastboot."
     type: "null"
-    ubports_installer-compatibility: ">=0.9.2-beta"
+    ubports_installer-compatibility: ">=0.0.2"
 
   fastboot:reboot_recovery:
     title: "fastboot:reboot_recovery action"
@@ -590,7 +578,7 @@ properties:
     description: "Download and install systemimage."
     oneOf:
       - type: "object"
-        ubports_installer-compatibility: ">=0.9.4-beta"
+        ubports_installer-compatibility: ">=0.0.2"
         additionalProperties: false
         properties:
           verify_recovery:
@@ -598,4 +586,4 @@ properties:
             type: "boolean"
             description: "Verify that the recovery is capable of installing Ubuntu Touch by asserting that `adb getprop ro.ubuntu.recovery`. Defaults to false."
       - type: "null"
-        ubports_installer-compatibility: ">=0.9.2-beta"
+        ubports_installer-compatibility: ">=0.0.2"

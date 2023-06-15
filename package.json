@@ -1,5 +1,5 @@
 {
-  "name": "ubports-installer-configs",
+  "name": "droidian-installer-configs",
   "version": "2.0.0",
   "description": "Configuration files for the UBports Installer.",
   "type": "module",
