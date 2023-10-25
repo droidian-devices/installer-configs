@@ -1,7 +1,8 @@
 name: "OnePlus 6/6T"
-codename: "enchilada"
+codename: "sdm845"
 formfactor: "phone"
 aliases:
+  - "enchilada"
   - "fajita"
   - "OnePlus6"
   - "OnePlus6T"
