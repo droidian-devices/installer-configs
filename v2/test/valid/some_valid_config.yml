@@ -18,24 +18,17 @@ handlers:
       - fastboot:flashing_unlock:
 operating_systems:
   - name: "Droidian"
-    compatible_installer: ">=0.0.2"
+    compatible_installer: ">=0.0.1"
     options:
-      - var: "channel"
-        name: "Channel"
-        tooltip: "The release channel"
-        link: "https://docs.ubports.com/en/latest/about/process/release-schedule.html"
+      - var: "variant"
+        name: "Variant"
+        tooltip: "The graphical shell to install"
         type: "select"
-        remote_values:
-          systemimage:channels:
-      - var: "wipe"
-        name: "Wipe Userdata"
-        tooltip: "Wipe personal data (required for new installs)"
-        type: "checkbox"
-      - var: "bootstrap"
-        name: "Bootstrap"
-        tooltip: "Flash system partitions using fastboot"
-        type: "checkbox"
-        value: true
+        values:
+          - value: "phosh"
+            label: "Phosh"
+          - value: "cutie"
+            label: "Cutie Shell"
     prerequisites: []
     steps:
       - actions:
@@ -57,7 +50,7 @@ operating_systems:
           - core:download:
               group: "firmware"
               files:
-                - url: "https://cdimage.ubports.com/devices/device/halium-unlocked-recovery_device.img"
+                - url: ""
                   checksum:
                     sum: "1337"
                     algorithm: "sha256"
@@ -68,7 +61,7 @@ operating_systems:
           - fastboot:flash:
               partitions:
                 - partition: "recovery"
-                  file: "halium-unlocked-recovery_device.img"
+                  file: ""
                   group: "firmware"
                   raw: true
         condition:
@@ -79,8 +72,6 @@ operating_systems:
         condition:
           var: "bootstrap"
           value: true
-      - actions:
-          - systemimage:install:
       - actions:
           - adb:reboot:
               to_state: "recovery"
