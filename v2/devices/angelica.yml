@@ -13,7 +13,7 @@ user_actions:
     link: "https://gitlab.com/ubports/porting/community-ports/android10/xiaomi-redmi-9c/xiaomi-angelica/-/blob/halium-10.0/README.md"
   unlock_phone:
     title: "Unlock the bootloader"
-    description: "Before installing Ubuntu Touch you must unlock the bootloader of your phone manually. Follow the steps in the linked page if you haven't already."
+    description: "Before installing Droidian you must unlock the bootloader of your phone manually. Follow the steps in the linked page if you haven't already."
     link: "https://en.miui.com/unlock"
   bootloader:
     title: "Reboot to Bootloader"

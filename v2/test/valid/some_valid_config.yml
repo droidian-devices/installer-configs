@@ -17,7 +17,7 @@ handlers:
     actions:
       - fastboot:flashing_unlock:
 operating_systems:
-  - name: "Ubuntu Touch"
+  - name: "Droidian"
     compatible_installer: ">=0.0.2"
     options:
       - var: "channel"

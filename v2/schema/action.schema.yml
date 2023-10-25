@@ -87,11 +87,6 @@ properties:
         description: Path on the device to push files to
         type: string
 
-  adb:preparesystemimage:
-    title: "adb:preparesystemimage action"
-    description: "Prepare for Ubuntu Touch system image installation."
-    type: "null"
-
   adb:assert_prop:
     title: "adb:assert_prop action"
     description: "Assert a property value over adb shell getprop or, failing that, reading from the default.prop file."
@@ -112,14 +107,6 @@ properties:
       regex:
         $ref: regex.schema.yml#
     ubports_installer-compatibility: ">=0.0.2"
-
-  ###############################
-  # asteroid_os plugin ##########
-  ###############################
-  asteroid_os:download:
-    title: "asteroid_os:download action"
-    description: "Download AsteroidOS images."
-    type: "null"
 
   ###############################
   # core plugin #################
@@ -548,42 +535,3 @@ properties:
             group:
               title: Group
               type: string
-
-  ###############################
-  # lineage_os plugin ###########
-  ###############################
-  lineage_os:download:
-    title: "lineage_os:download action"
-    description: "Download LineageOS image files."
-    type: "null"
-
-  lineage_os:install:
-    title: "lineage_os:install action"
-    description: "Install LineageOS images."
-    type: "null"
-
-  ###############################
-  # postmarketOS plugin #########
-  ###############################
-  postmarketos:download:
-    title: "postmarketos:download action"
-    description: "Download postmarketOS image files."
-    type: "null"
-
-  ###############################
-  # systemimage plugin ##########
-  ###############################
-  systemimage:install:
-    title: "systemimage:install action"
-    description: "Download and install systemimage."
-    oneOf:
-      - type: "object"
-        ubports_installer-compatibility: ">=0.0.2"
-        additionalProperties: false
-        properties:
-          verify_recovery:
-            title: "Verify Recovery"
-            type: "boolean"
-            description: "Verify that the recovery is capable of installing Ubuntu Touch by asserting that `adb getprop ro.ubuntu.recovery`. Defaults to false."
-      - type: "null"
-        ubports_installer-compatibility: ">=0.0.2"
