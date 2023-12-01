@@ -1,0 +1,67 @@
+name: "Galaxy Note 9 (Exynos)"
+codename: "crownlte"
+formfactor: "phone"
+doppelgangers: []
+user_actions:
+  bootloader:
+    title: "Reboot to Recovery"
+    description: "With the device powered off, press and hold the volume up, Bixby and power buttons until the screen turns on. It should boot to recovery, from recovery, select Advanced -> Enter fastboot"
+    image: "phone_power_down"
+    button: true
+  downgrade_android:
+    title: "Downgrade Android"
+    description: "Device has to be downgraded to latest stock Android 10 before installation"
+  install_recovery:
+    title: "Install the recovery image"
+    description: "Install the recovery image from https://tinyurl.com/crownlte-recovery from download mode"
+unlock:
+  - "downgrade_android"
+  - "install_recovery"
+operating_systems:
+  - name: "Droidian"
+    compatible_installer: ">=0.0.1"
+    options:
+      - var: "variant"
+        name: "Variant"
+        tooltip: "The graphical shell to install"
+        type: "select"
+        values:
+          - value: "phosh"
+            label: "Phosh"
+    prerequisites: []
+    steps:
+      - actions:
+          - core:download:
+              group: "firmware"
+              files:
+                - url: "https://images.droidian.org/droidian/nightly/arm64/samsung/image-fastboot-crownlte.zip"
+        condition:
+          var: "variant"
+          value: "phosh"
+      - actions:
+          - core:unpack:
+              group: "firmware"
+              files:
+                - archive: "image-fastboot-crownlte.zip"
+                  dir: "unpacked_droidian"
+        condition:
+          var: "variant"
+          value: "phosh"
+      - actions:
+          - adb:reboot:
+              to_state: "bootloader"
+        fallback:
+          - core:user_action:
+              action: "bootloader"
+      - actions:
+          - fastboot:flash:
+              partitions:
+                - partition: "BOOT"
+                  file: "unpacked_droidian/data/boot.img"
+                  group: "firmware"
+                - partition: "USERDATA"
+                  file: "unpacked_droidian/data/userdata.img"
+                  group: "firmware"
+      - actions:
+          - fastboot:reboot:
+    slideshow: []
