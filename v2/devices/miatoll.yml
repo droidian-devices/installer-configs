@@ -69,7 +69,8 @@ operating_systems:
           - core:download:
               group: "firmware"
               files:
-                - url: "https://github.com/cutie-shell/droidian/releases/download/nightly/droidian-OFFICIAL_xiaomi_miatoll-arm64-cutie-phone-29.zip"
+                - url: "https://github.com/droidian-images/droidian/releases/download/nightly/droidian-OFFICIAL-phosh-phone-xiaomi_miatoll-api29-arm64-next_20250415.zip"
+
         condition:
           var: "variant"
           value: "cutie"
@@ -86,7 +87,7 @@ operating_systems:
           - core:unpack:
               group: "firmware"
               files:
-                - archive: "droidian-OFFICIAL_xiaomi_miatoll-arm64-cutie-phone-29.zip"
+                - archive: "droidian-OFFICIAL-phosh-phone-xiaomi_miatoll-api29-arm64-next_20250415.zip"
                   dir: "unpacked_droidian"
         condition:
           var: "variant"
