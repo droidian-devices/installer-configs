@@ -99,18 +99,20 @@ operating_systems:
           - core:user_action:
               action: "bootloader"
       - actions:
+          - fastboot:set_active:
+              slot: "a"
           - fastboot:flash:
               partitions:
-                - partition: "boot"
+                - partition: "boot_a"
                   file: "unpacked_droidian/data/boot.img"
                   group: "firmware"
-                - partition: "dtbo"
+                - partition: "dtbo_a"
                   file: "unpacked_droidian/data/dtbo.img"
                   group: "firmware"
                 - partition: "userdata"
                   file: "unpacked_droidian/data/userdata.img"
                   group: "firmware"
-                - partition: "vbmeta"
+                - partition: "vbmeta_a"
                   file: "unpacked_droidian/data/vbmeta.img"
                   group: "firmware"
                   flags:
